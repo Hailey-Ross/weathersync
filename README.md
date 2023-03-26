@@ -1,5 +1,8 @@
 # RedM weather and time sync
 
+This is a FORKED Version of the [VORPCORE Premade](https://github.com/VORPCORE/vorp_pre-made) weathersync resource.  
+ALL credit goes to its original creators.
+
 ## Features
 
 - Syncs time and weather for all players
@@ -11,6 +14,8 @@
 - Different weather for different regions
 
 - Adjustable timescale
+
+- TXAdmin Integration for Restarts
 
 ## Examples
 
