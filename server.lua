@@ -196,8 +196,8 @@ function SetTime(h, m, s, t, f)
 end
 
 function getTime()
-	local d, h, m, s = TimeToDHMS(CurrentTime)
-	return {day = d, hour = h, minute = m, second = s}
+	local h, m, s = TimeToHMS(CurrentTime)
+	return {hour = h, minute = m, second = s}
 end
 
 RegisterCommand('time', function(source, args, raw)
@@ -393,7 +393,7 @@ end, true)
 exports("getTime", getTime)
 exports("getWeather", getWeather)
 exports("getWind", getWind)
-exports("getForecast", ExportForecast)
+exports("getForecast", CreateForecast)
 
 exports('setTime', SetTime)
 exports('resetTime', ResetTime)
