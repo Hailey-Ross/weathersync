@@ -34,6 +34,23 @@ function HMSToTime(hour, minute, second)
 	return hour * 3600 + minute * 60 + second
 end
 
+function TimeToDHMS(time)
+	local day = math.floor(time / 86400)
+	local hour = math.floor(time / 60 / 60) % 24
+	local minute = math.floor(time / 60) % 60
+	local second = time % 60
+
+	return day, hour, minute, second
+end
+
+function DHMSToTime(day, hour, minute, second)
+	return day * 86400 + hour * 3600 + minute * 60 + second
+end
+
+function GetDayOfWeek(day)
+	return ({"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"})[day + 1]
+end
+
 function GetCardinalDirection(h)
 	if h <= 22.5 then
 		return "N"

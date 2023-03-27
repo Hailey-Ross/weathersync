@@ -112,8 +112,8 @@ Config.WeatherPattern = {
 		['overcastdark'] = 40,
 		['drizzle']      = 30,
 		['shower']       = 10,
-		['rain']         = 15,
-		['snow']         = 1
+		['rain']         = 10,
+		['snow']         = 5
 	},
 
 	['drizzle'] = {

@@ -12,6 +12,9 @@ local CurrentWindSpeed = Config.WindSpeed
 local WindIsFrozen = Config.WindIsFrozen
 local PermanentSnow = Config.PermanentSnow
 
+local dayLength = 86400
+local weekLength = 604800
+
 local WeatherTicks = 0
 local WeatherForecast = {}
 
@@ -193,8 +196,8 @@ function SetTime(h, m, s, t, f)
 end
 
 function getTime()
-	local h, m, s = TimeToHMS(CurrentTime)
-	return {hour = h, minute = m, second = s}
+	local d, h, m, s = TimeToDHMS(CurrentTime)
+	return {day = d, hour = h, minute = m, second = s}
 end
 
 RegisterCommand('time', function(source, args, raw)
@@ -322,6 +325,29 @@ function CreateForecast()
 	return forecast
 end
 
+local function ExportForecast()
+	local forecast = {}
+
+	for i = 0, #WeatherForecast do
+		local d, h, m, s, weather, wind
+
+		if i == 0 then
+			d, h, m, s = TimeToDHMS(currentTime)
+			weather = CurrentWeather
+			wind = CurrentWindDirection
+		else
+			local time = (TimeIsFrozen and CurrentTime or (CurrentTime + WeatherInterval * i) % WeekLength)
+			d, h, m, s = TimeToDHMS(time - time % weatherInterval)
+			weather = WeatherForecast[i].weather
+			wind = WeatherForecast[i].wind
+		end
+
+		table.insert(forecast, {day = d, hour = h, minute = m, second = s, weather = weather, wind = wind})
+	end
+
+	return forecast
+end
+
 RegisterCommand('forecast', function(source, args, raw)
 	if source and source > 0 then
 		TriggerClientEvent('weatherSync:toggleForecast', source)
@@ -367,7 +393,7 @@ end, true)
 exports("getTime", getTime)
 exports("getWeather", getWeather)
 exports("getWind", getWind)
-exports("getForecast", CreateForecast)
+exports("getForecast", ExportForecast)
 
 exports('setTime', SetTime)
 exports('resetTime', ResetTime)
