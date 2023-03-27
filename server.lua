@@ -100,6 +100,10 @@ function SetWeather(weather, transition, freeze, permanentSnow)
 	GenerateForecast()
 end
 
+function getWeather()
+	return CurrentWeather
+end
+
 RegisterCommand('weather', function(source, args, raw)
 	local weather = (args[1] and args[1] or CurrentWeather)
 	local transition = (args[2] and tonumber(args[2]) or 10.0)
@@ -186,6 +190,11 @@ function SetTime(h, m, s, t, f)
 	TriggerClientEvent('weatherSync:changeTime', -1, h, m, s, t, true)
 	CurrentTime = HMSToTime(h, m, s)
 	TimeIsFrozen = f
+end
+
+function getTime()
+	local h, m, s = TimeToHMS(CurrentTime)
+	return {hour = h, minute = m, second = s}
 end
 
 RegisterCommand('time', function(source, args, raw)
@@ -278,6 +287,10 @@ AddEventHandler('weatherSync:setWind', function(direction, speed, frozen)
 	SetWind(direction, speed, frozen)
 end)
 
+function getWind()
+	return {direction = CurrentWindDirection, speed = CurrentWindSpeed}
+end
+
 function ResetWind()
 	CurrentWindDirection = Config.WindDirection
 	CurrentWindSpeed = Config.WindSpeed
@@ -350,6 +363,11 @@ end
 RegisterCommand('weatherui', function(source, args, raw)
 	TriggerClientEvent('weatherSync:openAdminUi', source)
 end, true)
+
+exports("getTime", getTime)
+exports("getWeather", getWeather)
+exports("getWind", getWind)
+exports("getForecast", CreateForecast)
 
 exports('setTime', SetTime)
 exports('resetTime', ResetTime)
