@@ -16,7 +16,7 @@ ALL credit goes to its original creators.
 - Adjustable timescale
 
 - TxAdmin Restart "Aware" Integration
-  - Change weather of ingame world to change as the restart gets closer with configurable alerts for players.  
+  - Configure weather of ingame world to change as the restart gets closer with customizable alerts for players.  
 
 ## Examples
 
