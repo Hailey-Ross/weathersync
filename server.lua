@@ -449,12 +449,14 @@ end)
 
 
 if Config.ToggleTxAdmin == true then
+	local debugstringOne = "TXAdmin Restart Scheduled in "
+	local debugstringTwo = " minutes has changed the weather to "
 	AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
 		local TimeToRestart = Config.FirstTimeToRestart / 60
 		if eventData.secondsRemaining == Config.FirstTimeToRestart then 
 			TriggerClientEvent('weatherSync:changeWeather', -1, Config.Firstweather, Config.Firsttransition, Config.FirstpermanentSnow)
 			if Config.ToggleWeatherTips == true then TriggerClientEvent("vorp:TipBottom", -1, Config.FirstAlert, 25) end
-			if Config.debug then print("TXAdmin Restart Scheduled in " .. TimeToRestart .. " minutes changed weather to " ..Config.Firstweather.. " ") end
+			if Config.debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. Config.Firstweather .. " ") end
 			Citizen.Wait(1000)
 		end
 	end)
@@ -464,7 +466,7 @@ if Config.ToggleTxAdmin == true then
 		if eventData.secondsRemaining == Config.SecondTimeToRestart then 
 			TriggerClientEvent('weatherSync:changeWeather', -1, Config.Secondweather, Config.Secondtransition, Config.SecondpermanentSnow)
 			if Config.ToggleWeatherTips == true then TriggerClientEvent("vorp:TipBottom", -1, Config.SecondAlert, 25) end
-			if Config.debug then print("TXAdmin Restart Scheduled in " .. TimeToRestart .. " minutes changed weather to " ..Config.Secondweather.. " ") end
+			if Config.debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. Config.Secondweather .. " ") end
 			Citizen.Wait(1000)
 		end
 	end)
@@ -474,7 +476,7 @@ if Config.ToggleTxAdmin == true then
 		if eventData.secondsRemaining == Config.ThirdTimeToRestart then 
 			TriggerClientEvent('weatherSync:changeWeather', -1, Config.Thirdweather, Config.Thirdtransition, Config.ThirdpermanentSnow)
 			if Config.ToggleWeatherTips == true then TriggerClientEvent("vorp:TipBottom", -1, Config.ThirdAlert, 25) end
-			if Config.debug then print("TXAdmin Restart Scheduled in " .. TimeToRestart .. " minutes changed weather to " ..Config.Thirdweather.. " ") end
+			if Config.debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. Config.Thirdweather .. " ") end
 			Citizen.Wait(1000)
 		end
 	end)
