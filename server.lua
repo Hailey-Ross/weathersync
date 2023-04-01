@@ -16,9 +16,6 @@ local secondWeather = Config.Secondweather
 local thirdWeather = Config.Thirdweather
 local debug = Config.debug
 
-local dayLength = 86400
-local weekLength = 604800
-
 local WeatherTicks = 0
 local WeatherForecast = {}
 
