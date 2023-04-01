@@ -329,20 +329,20 @@ local function ExportForecast()
 	local forecast = {}
 
 	for i = 0, #WeatherForecast do
-		local d, h, m, s, weather, wind
+		local h, m, s, weather, wind
 
 		if i == 0 then
-			d, h, m, s = TimeToDHMS(currentTime)
+			h, m, s = TimeToHMS(currentTime)
 			weather = CurrentWeather
 			wind = CurrentWindDirection
 		else
 			local time = (TimeIsFrozen and CurrentTime or (CurrentTime + WeatherInterval * i) % WeekLength)
-			d, h, m, s = TimeToDHMS(time - time % weatherInterval)
+			h, m, s = TimeToHMS(time - time % weatherInterval)
 			weather = WeatherForecast[i].weather
 			wind = WeatherForecast[i].wind
 		end
 
-		table.insert(forecast, {day = d, hour = h, minute = m, second = s, weather = weather, wind = wind})
+		table.insert(forecast, {hour = h, minute = m, second = s, weather = weather, wind = wind})
 	end
 
 	return forecast
