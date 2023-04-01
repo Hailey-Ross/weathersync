@@ -1,6 +1,6 @@
 Config = {}
 
-Config.debug = true
+Config.debug = false
 
 -- Default time when the server starts
 Config.Time = HMSToTime(6, 0, 0)
@@ -20,8 +20,9 @@ Config.WeatherInterval = HMSToTime(1, 0, 0)
 -- Whether weather is frozen at server start
 Config.WeatherIsFrozen = false
 
--- Toggle Whether Snow should be able to occur all over the world or not
-Config.ToggleSnow = false
+-- Needs Testing however SHOULD convert all weather patterns to winter/snow
+-- use with Config.PermanentSnow for "Winter Mode"
+Config.ToggleWinter = false
 
 -- Whether to permanently add snow on the ground, or only during snowy weather
 Config.PermanentSnow = false

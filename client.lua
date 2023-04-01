@@ -30,67 +30,83 @@ function TranslateWeatherForRegion(weather)
 	local x, y, z = table.unpack(GetEntityCoords(PlayerPedId()))
 	local temp = GetTemperatureAtCoords(x, y, z)
 
-	if weather == 'rain' then
-		if IsInSnowyRegion(x, y, z) then
-			return 'snow', true
-		elseif IsInNorthernRegion(x, y, z) and temp < 0.0 then
+	if Config.ToggleWinter == true then
+		if weather == 'rain' then
 			return 'snow'
-		elseif IsInDesertRegion(x, y, z) then
-			return 'thunder'
-		end
-	elseif weather == 'thunderstorm' then
-		if IsInSnowyRegion(x, y, z) then
-			return 'blizzard', true
-		elseif IsInDesertRegion(x, y, z) then
-			return 'rain'
-		end
-	elseif weather == 'hurricane' then
-		if IsInSnowyRegion(x, y, z) then
-			return 'whiteout', true
-		elseif IsInDesertRegion(x, y, z) then
-			return 'sandstorm'
-		end
-	elseif weather == 'drizzle' then
-		if IsInSnowyRegion(x, y, z) then
-			return 'snowlight', true
-		elseif IsInNorthernRegion(x, y, z) and temp < 0.0 then
+		elseif weather == 'drizzle' then
 			return 'snowlight'
-		elseif IsInDesertRegion(x, y, z) then
-			return 'sunny'
+		elseif weather == 'thunderstorm' then
+			return 'blizzard'
+		elseif weather == 'shower' then
+			return 'hail'
+		elseif weather == 'hurricane' then
+			return 'whiteout'
+		elseif weather == 'thunder' then
+			return 'snowlight'
+		elseif weather == 'highpressure' then
+			return 'groundblizzard'
+		elseif weather == 'misty' then
+			return 'snowlight'
+		elseif weather == 'fog' then
+			return 'snowlight'
 		end
-	elseif weather == 'shower' then
-		if IsInSnowyRegion(x, y, z) then
-			return 'groundblizzard', true
-		elseif IsInDesertRegion(x, y, z) then
-			return 'sunny'
+	else
+		if weather == 'rain' then
+			if IsInSnowyRegion(x, y, z) then
+				return 'snow', true
+			elseif IsInNorthernRegion(x, y, z) and temp < 0.0 then
+				return 'snow'
+			elseif IsInDesertRegion(x, y, z) then
+				return 'thunder'
+			end
+		elseif weather == 'thunderstorm' then
+			if IsInSnowyRegion(x, y, z) then
+				return 'blizzard', true
+			elseif IsInDesertRegion(x, y, z) then
+				return 'rain'
+			end
+		elseif weather == 'hurricane' then
+			if IsInSnowyRegion(x, y, z) then
+				return 'whiteout', true
+			elseif IsInDesertRegion(x, y, z) then
+				return 'sandstorm'
+			end
+		elseif weather == 'drizzle' then
+			if IsInSnowyRegion(x, y, z) then
+				return 'snowlight', true
+			elseif IsInNorthernRegion(x, y, z) and temp < 0.0 then
+				return 'snowlight'
+			elseif IsInDesertRegion(x, y, z) then
+				return 'sunny'
+			end
+		elseif weather == 'shower' then
+			if IsInSnowyRegion(x, y, z) then
+				return 'groundblizzard', true
+			elseif IsInDesertRegion(x, y, z) then
+				return 'sunny'
+			end
+		elseif weather == 'fog' then
+			if IsInSnowyRegion(x, y, z) then
+				return 'snowlight', true
+			end
+		elseif weather == 'misty' then
+			if IsInSnowyRegion(x, y, z) then
+				return 'snowlight', true
+			end
+		elseif weather == 'snow' then
+			if IsInGuarma(x, y, z) then
+				return 'sunny'
+			end
+		elseif weather == 'snowlight' then
+			if IsInGuarma(x, y, z) then
+				return 'sunny'
+			end
+		elseif weather == 'blizzard' then
+			if IsInGuarma(x, y, z) then
+				return 'sunny'
+			end
 		end
-	elseif weather == 'fog' then
-		if IsInSnowyRegion(x, y, z) then
-			return 'snowlight', true
-		end
-	elseif weather == 'misty' then
-		if IsInSnowyRegion(x, y, z) then
-			return 'snowlight', true
-		end
-	elseif weather == 'snow' then
-		if IsInGuarma(x, y, z) then
-			return 'sunny'
-		elseif not Config.ToggleSnow then
-			return 'sunny'
-		end
-	elseif weather == 'snowlight' then
-		if IsInGuarma(x, y, z) then
-			return 'sunny'
-		elseif not Config.ToggleSnow then
-			return 'sunny'
-		end
-	elseif weather == 'blizzard' then
-		if IsInGuarma(x, y, z) then
-			return 'sunny'
-		elseif not Config.ToggleSnow then
-			return 'sunny'
-		end
-	end
+	end 
 
 	return weather, IsInSnowyRegion(x, y, z)
 end

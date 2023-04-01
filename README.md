@@ -15,8 +15,15 @@ ALL credit goes to its original creators.
 
 - Adjustable timescale
 
-- TxAdmin Restart "Aware" Integration
+- Allows for Exports for use by other Resources
+
+- TxAdmin Restart "Aware" Integration  
   - Configure weather of ingame world to change as the restart gets closer with customizable alerts for players.  
+  - Configure how at what intervals to change the weather (Default: 30 mins, 15 mins and 5 mins remaining)
+  - Configure Transition Time of weather change  
+  - Toggle on/off permanent snow during restart forced weather  
+  - Alerts can be Toggled on/off  
+  - Entire feature can be Toggled on/off  
 
 ## Examples
 
@@ -53,3 +60,8 @@ ALL credit goes to its original creators.
 | `Config.SyncDelay`       | How often in ms to sync with clients.               | `5000`                                |
 | `Config.WeatherPattern`  | A table describing the the weather pattern.         | See [config.lua](config.lua)          |
 | `Config.WeatherIcons`    | Icons to use for each weather type in the forecast. | See [config.lua](config.lua)          |
+
+
+## Exports
+
+Coming Soon  

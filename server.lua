@@ -54,6 +54,36 @@ function NextWeather(weather)
 	for weatherType, chance in pairs(choices) do
 		c = c + chance
 		if r <= c then
+			if Config.ToggleWinter == true then
+				if weatherType == 'rain' then
+					weatherType = 'snow'
+					return weatherType
+				elseif weatherType == 'drizzle' then
+					weatherType = 'snowlight'
+					return weatherType
+				elseif weatherType == 'thunderstorm' then
+					weatherType = 'blizzard'
+					return weatherType
+				elseif weatherType == 'shower' then
+					weatherType = 'hail'
+					return weatherType
+				elseif weatherType == 'hurricane' then
+					weatherType = 'whiteout'
+					return weatherType
+				elseif weatherType == 'thunder' then
+					weatherType = 'snowlight'
+					return weatherType
+				elseif weatherType == 'highpressure' then
+					weatherType = 'groundblizzard'
+					return weatherType
+				elseif weatherType == 'misty' then
+					weatherType = 'snowlight'
+					return weatherType
+				elseif weatherType == 'fog' then
+					weatherType = 'snowlight'
+					return weatherType
+				end
+			end
 			return weatherType
 		end
 	end
