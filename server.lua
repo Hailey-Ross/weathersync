@@ -51,7 +51,7 @@ function NextWeather(weather)
 	for weatherType, chance in pairs(choices) do
 		c = c + chance
 		if r <= c then
-			if Config.ToggleWinter == true then
+			if Config.ToggleWinter then
 				if weatherType == 'rain' then
 					weatherType = 'snow'
 					return weatherType

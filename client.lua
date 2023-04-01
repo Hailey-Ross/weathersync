@@ -30,7 +30,7 @@ function TranslateWeatherForRegion(weather)
 	local x, y, z = table.unpack(GetEntityCoords(PlayerPedId()))
 	local temp = GetTemperatureAtCoords(x, y, z)
 
-	if Config.ToggleWinter == true then
+	if Config.ToggleWinter then
 		if weather == 'rain' then
 			return 'snow'
 		elseif weather == 'drizzle' then
