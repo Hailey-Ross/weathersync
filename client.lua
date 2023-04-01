@@ -9,6 +9,8 @@ RegisterNetEvent('weatherSync:toggleForecast')
 RegisterNetEvent('weatherSync:updateForecast')
 RegisterNetEvent('weatherSync:openAdminUi')
 RegisterNetEvent('weatherSync:updateAdminUi')
+RegisterNetEvent("weathersync:toggleSync")
+RegisterNetEvent("weathersync:setSyncEnabled")
 
 function IsInSnowyRegion(x, y, z)
 	return x <= -700.0 and y >= 1090.0
@@ -113,6 +115,23 @@ end
 
 function SetWeatherType(weatherHash, p1, p2, overrideNetwork, transitionTime, p5)
 	Citizen.InvokeNative(0x59174F1AFE095B5A, weatherHash, true, false, true, transitionTime, false)
+end
+
+local function toggleSync()
+	currentWeather = nil
+
+	syncEnabled = not syncEnabled
+
+	TriggerEvent("chat:addMessage", {
+		color = { 255, 255, 128 },
+		args = { "Weather Sync", syncEnabled and "on" or "off" }
+	})
+end
+
+local function setSyncEnabled(toggle)
+	if syncEnabled ~= toggle then
+		toggleSync()
+	end
 end
 
 function SetSnowCoverageType(type)
@@ -309,6 +328,9 @@ RegisterNUICallback('closeAdminUi', function(data, cb)
 	AdminUiIsOpen = false
 	cb({})
 end)
+
+AddEventHandler("weathersync:setSyncEnabled", setSyncEnabled)
+AddEventHandler("weathersync:toggleSync", toggleSync)
 
 CreateThread(function()
 	Wait(0)
