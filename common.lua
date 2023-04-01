@@ -34,10 +34,6 @@ function HMSToTime(hour, minute, second)
 	return hour * 3600 + minute * 60 + second
 end
 
-function GetDayOfWeek(day)
-	return ({"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"})[day + 1]
-end
-
 function GetCardinalDirection(h)
 	if h <= 22.5 then
 		return "N"
