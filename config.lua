@@ -1,6 +1,6 @@
 Config = {}
 
-Config.debug = false
+Config.debug = true
 
 -- Default time when the server starts
 Config.Time = HMSToTime(6, 0, 0)

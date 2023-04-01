@@ -450,14 +450,17 @@ end)
 
 if Config.ToggleTxAdmin == true then
 	AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
+		local TimeToRestart = Config.FirstTimeToRestart / 60
 		if eventData.secondsRemaining == Config.FirstTimeToRestart then 
 			TriggerClientEvent('weatherSync:changeWeather', -1, Config.Firstweather, Config.Firsttransition, Config.FirstpermanentSnow)
 			if Config.ToggleWeatherTips == true then TriggerClientEvent("vorp:TipBottom", -1, Config.FirstAlert, 25) end
+			if Config.debug then print("TXAdmin Restart Scheduled in " .. TimeToRestart .. " minutes changed weather to " ..Config.Firstweather.. " ") end
 			Citizen.Wait(1000)
 		end
 	end)
 
 	AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
+		local TimeToRestart = Config.SecondTimeToRestart / 60
 		if eventData.secondsRemaining == Config.SecondTimeToRestart then 
 			TriggerClientEvent('weatherSync:changeWeather', -1, Config.Secondweather, Config.Secondtransition, Config.SecondpermanentSnow)
 			if Config.ToggleWeatherTips == true then TriggerClientEvent("vorp:TipBottom", -1, Config.SecondAlert, 25) end
@@ -466,6 +469,7 @@ if Config.ToggleTxAdmin == true then
 	end)
 
 	AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
+		local TimeToRestart = Config.ThirdTimeToRestart / 60
 		if eventData.secondsRemaining == Config.ThirdTimeToRestart then 
 			TriggerClientEvent('weatherSync:changeWeather', -1, Config.Thirdweather, Config.Thirdtransition, Config.ThirdpermanentSnow)
 			if Config.ToggleWeatherTips == true then TriggerClientEvent("vorp:TipBottom", -1, Config.ThirdAlert, 25) end
