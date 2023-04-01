@@ -479,7 +479,7 @@ CreateThread(function()
 end)
 
 
-if Config.ToggleTxAdmin == true then
+if Config.ToggleTxAdmin then
 	local debugstringOne = "TXAdmin Restart Scheduled in "
 	local debugstringTwo = " minutes has changed the weather to "
 	local toggleWeatherTips = Config.ToggleWeatherTips
