@@ -492,6 +492,7 @@ if Config.ToggleTxAdmin == true then
 			TriggerClientEvent('weatherSync:changeWeather', -1, firstWeather, Config.Firsttransition, Config.FirstpermanentSnow)
 			if toggleWeatherTips == true then TriggerClientEvent("vorp:TipBottom", -1, Config.FirstAlert, 25) end
 			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. firstWeather .. " ") end
+			WeatherIsFrozen = true
 			Citizen.Wait(1000)
 		end
 	end)
@@ -502,6 +503,7 @@ if Config.ToggleTxAdmin == true then
 			TriggerClientEvent('weatherSync:changeWeather', -1, secondWeather, Config.Secondtransition, Config.SecondpermanentSnow)
 			if toggleWeatherTips == true then TriggerClientEvent("vorp:TipBottom", -1, Config.SecondAlert, 25) end
 			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. secondWeather .. " ") end
+			WeatherIsFrozen = true
 			Citizen.Wait(1000)
 		end
 	end)
@@ -512,6 +514,7 @@ if Config.ToggleTxAdmin == true then
 			TriggerClientEvent('weatherSync:changeWeather', -1, thirdWeather, Config.Thirdtransition, Config.ThirdpermanentSnow)
 			if toggleWeatherTips == true then TriggerClientEvent("vorp:TipBottom", -1, Config.ThirdAlert, 25) end
 			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. thirdWeather .. " ") end
+			WeatherIsFrozen = true
 			Citizen.Wait(1000)
 		end
 	end)
