@@ -62,7 +62,7 @@ function NextWeather(weather)
 					weatherType = 'blizzard'
 					return weatherType
 				elseif weatherType == 'shower' then
-					weatherType = 'hail'
+					weatherType = 'sleet'
 					return weatherType
 				elseif weatherType == 'hurricane' then
 					weatherType = 'whiteout'
@@ -74,10 +74,12 @@ function NextWeather(weather)
 					weatherType = 'groundblizzard'
 					return weatherType
 				elseif weatherType == 'misty' then
-					weatherType = 'snowlight'
+					weatherType = 'snow'
 					return weatherType
 				elseif weatherType == 'fog' then
 					weatherType = 'snowlight'
+					return weatherType
+				else
 					return weatherType
 				end
 			end
