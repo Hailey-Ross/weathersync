@@ -77,7 +77,7 @@ function NextWeather(weather)
 					weatherType = 'snow'
 					return weatherType
 				elseif weatherType == 'fog' then
-					weatherType = 'snowlight'
+					weatherType = 'snow'
 					return weatherType
 				else
 					return weatherType

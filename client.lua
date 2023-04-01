@@ -38,7 +38,7 @@ function TranslateWeatherForRegion(weather)
 		elseif weather == 'thunderstorm' then
 			return 'blizzard'
 		elseif weather == 'shower' then
-			return 'hail'
+			return 'sleet'
 		elseif weather == 'hurricane' then
 			return 'whiteout'
 		elseif weather == 'thunder' then
@@ -46,9 +46,9 @@ function TranslateWeatherForRegion(weather)
 		elseif weather == 'highpressure' then
 			return 'groundblizzard'
 		elseif weather == 'misty' then
-			return 'snowlight'
+			return 'snow'
 		elseif weather == 'fog' then
-			return 'snowlight'
+			return 'snow'
 		end
 	else
 		if weather == 'rain' then
