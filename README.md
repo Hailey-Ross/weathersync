@@ -15,7 +15,7 @@ ALL credit goes to its original creators.
 
 - Adjustable timescale
 
-- TXAdmin Integration for Restarts
+- TxAdmin Restart "Aware" Integration
 
 ## Examples
 
