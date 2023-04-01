@@ -14,7 +14,7 @@ Config.TimeIsFrozen = false
 -- Default weather when the server starts
 Config.Weather = 'sunny'
 
--- The interval (in-game time) between weather changes
+-- The interval (in-game time) between weather changes (Hours, Minutes, Seconds)
 Config.WeatherInterval = HMSToTime(1, 0, 0)
 
 -- Whether weather is frozen at server start
