@@ -161,8 +161,11 @@ Config.WeatherPattern = {
 	},
 
 	['snow'] = {
-		['snow'] = 60,
-		['overcastdark'] = 40
+		['snow'] = 40,
+		['overcast']     = 20,
+		['overcastdark'] = 20,
+		['clouds']       = 20
+		
 	} 
 }
 
