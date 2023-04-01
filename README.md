@@ -17,7 +17,7 @@ ALL credit goes to its original creators.
 
 - Allows for Exports for use by other Resources
 
-- Toggle "Winter-Mode" in the config file, converting all weather patterns to Snow equivalent variation.
+- Toggle "Winter-Mode" in the config file, converting all weather patterns to Snow equivalent variations.
   - Use in combination with "PermanentSnow" for "Winter-Mode"
 
 - TxAdmin Restart "Aware" Integration  
