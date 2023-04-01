@@ -63,6 +63,8 @@ ALL credit goes to its original creators.
 | `Config.SyncDelay`       | How often in ms to sync with clients.               | `5000`                                |
 | `Config.WeatherPattern`  | A table describing the the weather pattern.         | See [config.lua](config.lua)          |
 | `Config.WeatherIcons`    | Icons to use for each weather type in the forecast. | See [config.lua](config.lua)          |
+| `Config.ToggleWinter`    | Toggle whether it is "Winter-Mode" on your Server   | See [config.lua](config.lua)          |
+| `Config.ToggleTxAdmin`   | Toggle TxAdmin Restart Integration                  | See [config.lua](config.lua)          |
 
 
 ## Exports
