@@ -17,6 +17,9 @@ ALL credit goes to its original creators.
 
 - Allows for Exports for use by other Resources
 
+- Toggle "Winter-Mode" in the config file, converting all weather patterns to Snow equivalent variation.
+  - Use in combination with "PermanentSnow" for "Winter-Mode"
+
 - TxAdmin Restart "Aware" Integration  
   - Configure weather of ingame world to change as the restart gets closer with customizable alerts for players.  
   - Configure how at what intervals to change the weather (Default: 30 mins, 15 mins and 5 mins remaining)
