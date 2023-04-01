@@ -332,12 +332,12 @@ local function ExportForecast()
 		local h, m, s, weather, wind
 
 		if i == 0 then
-			h, m, s = TimeToHMS(currentTime)
+			h, m, s = TimeToHMS(CurrentTime)
 			weather = CurrentWeather
 			wind = CurrentWindDirection
 		else
-			local time = (TimeIsFrozen and CurrentTime or (CurrentTime + WeatherInterval * i) % WeekLength)
-			h, m, s = TimeToHMS(time - time % weatherInterval)
+			local time = (TimeIsFrozen and CurrentTime or (CurrentTime + WeatherInterval * i) % 86400)
+			h, m, s = TimeToHMS(time - time % WeatherInterval)
 			weather = WeatherForecast[i].weather
 			wind = WeatherForecast[i].wind
 		end
@@ -393,7 +393,7 @@ end, true)
 exports("getTime", getTime)
 exports("getWeather", getWeather)
 exports("getWind", getWind)
-exports("getForecast", CreateForecast)
+exports("getForecast", ExportForecast)
 
 exports('setTime', SetTime)
 exports('resetTime', ResetTime)
