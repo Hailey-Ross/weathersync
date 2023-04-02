@@ -11,6 +11,10 @@ local currentWindDirection = Config.windDirection
 local currentWindSpeed = Config.windSpeed
 local windIsFrozen = Config.windIsFrozen
 local permanentSnow = Config.permanentSnow
+local firstWeather = Config.Firstweather
+local secondWeather = Config.Secondweather
+local thirdWeather = Config.Thirdweather
+local debug = Config.debug
 
 local weatherTicks = 0
 local weatherForecast = {}

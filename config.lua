@@ -1,5 +1,7 @@
 Config = {}
 
+Config.debug = false
+
 -- Determine if game is GTA V or RDR 2
 if IsDuplicityVersion() then
 	Config.isRDR = GetConvar("gamename", "gta5") == "rdr3"
