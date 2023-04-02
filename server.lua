@@ -532,8 +532,9 @@ if toggleTxAdmin then
 		local permanentSnow = Config.permanentSnow
 		if debug then print("TxAdmin Restart was Cancelled, Resetting Forecast/Weather") end
 		setWeather(timeoutWeather, weatherTransition * 1.0, 0, permanentSnow)
-		Citizen.Wait(5000)
+		resetWeather()
 		resetWeatherPattern()
 		syncWeather(-1)
+		Citizen.Wait(1000)
 	end)
 end
