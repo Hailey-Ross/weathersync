@@ -532,7 +532,7 @@ if toggleTxAdmin then
 		if eventData.secondsRemaining >= timeoutRestart then
 			if debug then print("TxAdmin Restart was Cancelled, Resetting Forecast/Weather") end
 			setWeather(timeoutWeather, weatherTransition, 0, Config.TxpermanentSnow)
-			Citizen.Wait(1000)
+			Citizen.Wait(5000)
 			resetWeatherPattern()
 			syncWeather()
 		end
