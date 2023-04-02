@@ -83,7 +83,7 @@ Config.syncDelay = 1000
 Config.ToggleTxAdmin = false      -- true is on | false is off
 Config.ToggleWeatherTips = false  -- true is on | false is off
 Config.TxpermanentSnow = 0        -- 1 = on     | 0 = off
-Config.weatherTransition = 120     -- Weather Transition time in seconds
+Config.weatherTransition = 120.0     -- Weather Transition time in seconds
 
 -- Fallback if Restart is Cancelled to change weather to
 Config.restartTimeoutWeather = 'sunny'   -- Weather to fallback on if restart is cancelled

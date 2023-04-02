@@ -85,7 +85,11 @@ start weathersync
 | `Config.permanentSnow`           | Whether to add snow on the ground permanently.                 | `false`                                   |
 | `Config.dynamicSnow`             | Whether to add snow on the ground dynamically.                 | `false`                                   |
 | `Config.syncDelay`               | How often in ms to sync with clients.                          | `5000`                                    |
-| `Config.ToggleTxAdmin`           | TxAdmin Integration. See [config.lua](config.lua) for sub-options   | `false`                                   |
+| `Config.ToggleTxAdmin`           | TxAdmin Integration. See [config.lua](config.lua) for sub-options   | `false`                        |
+| `Config.ToggleWeatherTips`           | Toggles weather alerts during TxAdmin Restarts.   | `false`                                   |
+| `Config.TxpermanentSnow`           | Toggles permanent snow during TxAdmin Restart weather.   | `0` (0 is off, 1 is on)            |
+| `Config.restartTimeoutWeather`           | Sets weather if Restart is cancelled   | `sunny` See [config.lua](config.lua)            |
+| `Config.weatherTransition`           | Sets weather transition time during TxAdmin Restart weather.   | `false`                                   |
 | `Config.weatherPattern`          | A table describing the the weather pattern.                    | See [config.lua](config.lua)              |
 | `Config.disableSnowOnCayoPerico` | Disables permanent and dynamic snow while on Cayo Perico.      | `false`                                   |
 
