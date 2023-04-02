@@ -492,10 +492,11 @@ if toggleTxAdmin then
 	AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
 		local TimeToRestart = Config.FirstTimeToRestart / 60
 		if eventData.secondsRemaining == Config.FirstTimeToRestart then 
-			TriggerClientEvent('weathersync:setWeather', -1, firstWeather, Config.Firsttransition, Config.TxpermanentSnow)
+			--TriggerClientEvent('weathersync:setWeather', firstWeather, Config.Firsttransition * 1.0, 1, Config.TxpermanentSnow)
+			setWeather(firstWeather, Config.Firsttransition * 1.0, 1, Config.TxpermanentSnow)
 			if toggleWeatherTips then TriggerClientEvent("vorp:TipBottom", -1, Config.FirstAlert, 25) end
-			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. firstWeather .. " ") end
-			weatherIsFrozen = true
+			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. currentWeather .. " ") end
+			syncWeather(-1)
 			Citizen.Wait(1000)
 		end
 	end)
@@ -503,10 +504,11 @@ if toggleTxAdmin then
 	AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
 		local TimeToRestart = Config.SecondTimeToRestart / 60
 		if eventData.secondsRemaining == Config.SecondTimeToRestart then 
-			TriggerClientEvent('weathersync:setWeather', -1, secondWeather, Config.Secondtransition, Config.TxpermanentSnow)
+			--TriggerClientEvent('weathersync:setWeather', secondWeather, Config.Secondtransition * 1.0, 1, Config.TxpermanentSnow)
+			setWeather(secondWeather, Config.Secondtransition * 1.0, 1, Config.TxpermanentSnow)
 			if toggleWeatherTips then TriggerClientEvent("vorp:TipBottom", -1, Config.SecondAlert, 25) end
-			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. secondWeather .. " ") end
-			weatherIsFrozen = true
+			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. currentWeather .. " ") end
+			syncWeather(-1)
 			Citizen.Wait(1000)
 		end
 	end)
@@ -514,10 +516,11 @@ if toggleTxAdmin then
 	AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
 		local TimeToRestart = Config.ThirdTimeToRestart / 60
 		if eventData.secondsRemaining == Config.ThirdTimeToRestart then 
-			TriggerClientEvent('weathersync:setWeather', -1, thirdWeather, Config.Thirdtransition, Config.TxpermanentSnow)
+			--TriggerClientEvent('weathersync:setWeather', thirdWeather, Config.Thirdtransition * 1.0, 1, Config.TxpermanentSnow)
+			setWeather(thirdWeather, Config.Thirdtransition * 1.0, 1, Config.TxpermanentSnow)
 			if toggleWeatherTips then TriggerClientEvent("vorp:TipBottom", -1, Config.ThirdAlert, 25) end
-			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. thirdWeather .. " ") end
-			weatherIsFrozen = true
+			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. currentWeather .. " ") end
+			syncWeather(-1)
 			Citizen.Wait(1000)
 		end
 	end)
