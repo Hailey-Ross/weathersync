@@ -63,7 +63,7 @@ local function nextWeather(weather)
 	for weatherType, chance in pairs(choices) do
 		c = c + chance
 		if r <= c then
-			if Config.toggleWinter then
+			if Config.toggleWinter and Config.isRDR then
 				if weatherType == 'rain' then
 					weatherType = 'snow'
 					return weatherType
