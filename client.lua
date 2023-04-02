@@ -5,6 +5,7 @@ local currentWeather = nil
 local currentWindDirection = 0.0
 local snowOnGround = false
 local syncEnabled = true
+local debug = Config.debug
 
 local forecastIsDisplayed = false
 local adminUiIsOpen = false
@@ -271,10 +272,12 @@ local function toggleSync()
 
 	syncEnabled = not syncEnabled
 
-	TriggerEvent("chat:addMessage", {
-		color = { 255, 255, 128 },
-		args = { "Weather Sync", syncEnabled and "on" or "off" }
-	})
+	if debug then
+		TriggerEvent("chat:addMessage", {
+			color = { 255, 255, 128 },
+			args = { "weathersync", syncEnabled and "on" or "off" }
+		})
+	end
 end
 
 local function setSyncEnabled(toggle)
