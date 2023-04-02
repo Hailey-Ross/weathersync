@@ -1,4 +1,5 @@
 local meanSeaLevel = Config.isRDR and 40.0 or 0.0
+local toggleWinter = Config.toggleWinter
 
 local currentWeather = nil
 local currentWindDirection = 0.0
@@ -80,66 +81,87 @@ end
 local function translateWeatherForRegion(weather, x, y, z)
 	if Config.isRDR then
 		local temp = GetTemperatureAtCoords(x, y, z)
-
-		if weather == "rain" then
-			if isInSnowyRegion(x, y, z) then
-				return "snow"
-			elseif isInNorthernRegion(x, y, z) and temp < 0.0 then
-				return "snow"
-			elseif isInDesertRegion(x, y, z) then
-				return "thunder"
+		if toggleWinter then
+			if weather == 'rain' then
+				return 'snow'
+			elseif weather == 'drizzle' then
+				return 'snowlight'
+			elseif weather == 'thunderstorm' then
+				return 'blizzard'
+			elseif weather == 'shower' then
+				return 'sleet'
+			elseif weather == 'hurricane' then
+				return 'whiteout'
+			elseif weather == 'thunder' then
+				return 'snowlight'
+			elseif weather == 'highpressure' then
+				return 'groundblizzard'
+			elseif weather == 'misty' then
+				return 'snow'
+			elseif weather == 'fog' then
+				return 'snow'
 			end
-		elseif weather == "thunderstorm" then
-			if isInSnowyRegion(x, y, z) then
-				return "blizzard"
-			elseif isInNorthernRegion(x, y, z) and temp < 0.0 then
-				return "blizzard"
-			elseif isInDesertRegion(x, y, z) then
-				return "rain"
-			end
-		elseif weather == "hurricane" then
-			if isInSnowyRegion(x, y, z) then
-				return "whiteout"
-			elseif isInNorthernRegion(x, y, z) and temp < 0.0 then
-				return "whiteout"
-			elseif isInDesertRegion(x, y, z) then
-				return "sandstorm"
-			end
-		elseif weather == "drizzle" then
-			if isInSnowyRegion(x, y, z) then
-				return "snowlight"
-			elseif isInNorthernRegion(x, y, z) and temp < 0.0 then
-				return "snowlight"
-			elseif isInDesertRegion(x, y, z) then
-				return "sunny"
-			end
-		elseif weather == "shower" then
-			if isInSnowyRegion(x, y, z) then
-				return "groundblizzard"
-			elseif isInNorthernRegion(x, y, z) and temp < 0.0 then
-				return "groundblizzard"
-			elseif isInDesertRegion(x, y, z) then
-				return "sunny"
-			end
-		elseif weather == "fog" then
-			if isInSnowyRegion(x, y, z) then
-				return "snowlight"
-			end
-		elseif weather == "misty" then
-			if isInSnowyRegion(x, y, z) then
-				return "snowlight"
-			end
-		elseif weather == "snow" then
-			if isInGuarma(x, y, z) then
-				return "sunny"
-			end
-		elseif weather == "snowlight" then
-			if isInGuarma(x, y, z) then
-				return "sunny"
-			end
-		elseif weather == "blizzard" then
-			if isInGuarma(x, y, z) then
-				return "sunny"
+		else
+			if weather == "rain" then
+				if isInSnowyRegion(x, y, z) then
+					return "snow"
+				elseif isInNorthernRegion(x, y, z) and temp < 0.0 then
+					return "snow"
+				elseif isInDesertRegion(x, y, z) then
+					return "thunder"
+				end
+			elseif weather == "thunderstorm" then
+				if isInSnowyRegion(x, y, z) then
+					return "blizzard"
+				elseif isInNorthernRegion(x, y, z) and temp < 0.0 then
+					return "blizzard"
+				elseif isInDesertRegion(x, y, z) then
+					return "rain"
+				end
+			elseif weather == "hurricane" then
+				if isInSnowyRegion(x, y, z) then
+					return "whiteout"
+				elseif isInNorthernRegion(x, y, z) and temp < 0.0 then
+					return "whiteout"
+				elseif isInDesertRegion(x, y, z) then
+					return "sandstorm"
+				end
+			elseif weather == "drizzle" then
+				if isInSnowyRegion(x, y, z) then
+					return "snowlight"
+				elseif isInNorthernRegion(x, y, z) and temp < 0.0 then
+					return "snowlight"
+				elseif isInDesertRegion(x, y, z) then
+					return "sunny"
+				end
+			elseif weather == "shower" then
+				if isInSnowyRegion(x, y, z) then
+					return "groundblizzard"
+				elseif isInNorthernRegion(x, y, z) and temp < 0.0 then
+					return "groundblizzard"
+				elseif isInDesertRegion(x, y, z) then
+					return "sunny"
+				end
+			elseif weather == "fog" then
+				if isInSnowyRegion(x, y, z) then
+					return "snowlight"
+				end
+			elseif weather == "misty" then
+				if isInSnowyRegion(x, y, z) then
+					return "snowlight"
+				end
+			elseif weather == "snow" then
+				if isInGuarma(x, y, z) then
+					return "sunny"
+				end
+			elseif weather == "snowlight" then
+				if isInGuarma(x, y, z) then
+					return "sunny"
+				end
+			elseif weather == "blizzard" then
+				if isInGuarma(x, y, z) then
+					return "sunny"
+				end
 			end
 		end
 	else

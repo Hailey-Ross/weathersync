@@ -15,6 +15,8 @@ local firstWeather = Config.Firstweather
 local secondWeather = Config.Secondweather
 local thirdWeather = Config.Thirdweather
 local debug = Config.debug
+local toggleTxAdmin = Config.ToggleTxAdmin
+local toggleWinter = Config.toggleWinter
 
 local weatherTicks = 0
 local weatherForecast = {}
@@ -61,6 +63,36 @@ local function nextWeather(weather)
 	for weatherType, chance in pairs(choices) do
 		c = c + chance
 		if r <= c then
+			if Config.toggleWinter then
+				if weatherType == 'rain' then
+					weatherType = 'snow'
+					return weatherType
+				elseif weatherType == 'drizzle' then
+					weatherType = 'snowlight'
+					return weatherType
+				elseif weatherType == 'thunderstorm' then
+					weatherType = 'blizzard'
+					return weatherType
+				elseif weatherType == 'shower' then
+					weatherType = 'sleet'
+					return weatherType
+				elseif weatherType == 'hurricane' then
+					weatherType = 'whiteout'
+					return weatherType
+				elseif weatherType == 'thunder' then
+					weatherType = 'snowlight'
+					return weatherType
+				elseif weatherType == 'highpressure' then
+					weatherType = 'groundblizzard'
+					return weatherType
+				elseif weatherType == 'misty' then
+					weatherType = 'snow'
+					return weatherType
+				elseif weatherType == 'fog' then
+					weatherType = 'snow'
+					return weatherType
+				end
+			end
 			return weatherType
 		end
 	end
@@ -452,3 +484,41 @@ Citizen.CreateThread(function()
 		Citizen.Wait(syncDelay)
 	end
 end)
+
+if toggleTxAdmin then
+	local debugstringOne = "TXAdmin Restart Scheduled in "
+	local debugstringTwo = " minutes has changed the weather to "
+	local toggleWeatherTips = Config.ToggleWeatherTips
+	AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
+		local TimeToRestart = Config.FirstTimeToRestart / 60
+		if eventData.secondsRemaining == Config.FirstTimeToRestart then 
+			TriggerClientEvent('weatherSync:changeWeather', -1, firstWeather, Config.Firsttransition, Config.FirstpermanentSnow)
+			if toggleWeatherTips then TriggerClientEvent("vorp:TipBottom", -1, Config.FirstAlert, 25) end
+			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. firstWeather .. " ") end
+			WeatherIsFrozen = true
+			Citizen.Wait(1000)
+		end
+	end)
+
+	AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
+		local TimeToRestart = Config.SecondTimeToRestart / 60
+		if eventData.secondsRemaining == Config.SecondTimeToRestart then 
+			TriggerClientEvent('weatherSync:changeWeather', -1, secondWeather, Config.Secondtransition, Config.SecondpermanentSnow)
+			if toggleWeatherTips then TriggerClientEvent("vorp:TipBottom", -1, Config.SecondAlert, 25) end
+			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. secondWeather .. " ") end
+			WeatherIsFrozen = true
+			Citizen.Wait(1000)
+		end
+	end)
+
+	AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
+		local TimeToRestart = Config.ThirdTimeToRestart / 60
+		if eventData.secondsRemaining == Config.ThirdTimeToRestart then 
+			TriggerClientEvent('weatherSync:changeWeather', -1, thirdWeather, Config.Thirdtransition, Config.ThirdpermanentSnow)
+			if toggleWeatherTips then TriggerClientEvent("vorp:TipBottom", -1, Config.ThirdAlert, 25) end
+			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. thirdWeather .. " ") end
+			WeatherIsFrozen = true
+			Citizen.Wait(1000)
+		end
+	end)
+end
