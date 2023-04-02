@@ -14,6 +14,19 @@
 
 - Players can temporarily disable sync and set local time/weather
 
+- TxAdmin Restart Integration
+  - Easily Toggle On/Off
+  - Customize at what times the weather will change leading up to the restart
+  - Set desired Weather changes leading up to Server Restart
+  - Customize weather transition time
+  - Added Fallback if Restart is cancelled for any reason
+    - Configurable fallback weather
+
+- "Winter-Mode" allows for changing weather patterns into snow variants
+  - Easily Toggle On/Off
+  - Combine with Permanent Snow config option for 'true' winter
+  - Changes output Forecast as well for exports and command usage
+
 # Examples
 
 | Forecast and admin UI | Region-specific weather | Adjustable timescale |
