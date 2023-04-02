@@ -534,6 +534,6 @@ if toggleTxAdmin then
 		setWeather(timeoutWeather, weatherTransition * 1.0, 0, permanentSnow)
 		Citizen.Wait(5000)
 		resetWeatherPattern()
-		syncWeather()
+		--syncWeather()
 	end)
 end
