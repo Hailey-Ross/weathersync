@@ -77,21 +77,19 @@ start weathersync
 | `Config.dynamicSnow`             | Whether to dynamically add snow on the ground in cold regions  | `true`                                    |
 | `Config.maxForecast`             | Number of weather intervals to queue up.                       | `23` (24-hour forecast)                   |
 | `Config.windDirection`           | Default wind direction when the resource starts.               | `0.0` (North)                             |
-| `Config.windSpeed`               | Default base wind speed when the resource starts.              | `0.0`                                        |
+| `Config.windSpeed`               | Default base wind speed when the resource starts.              | `0.0`                                     |
 | `Config.windShearDirection`      | Degrees by which wind direction changes at higher altitudes.   | `45`                                      |
-| `Config.windShearSpeed`          | Amount by which base wind speed increases at higher altitudes. | `2.0`                                        |
-| `Config.windShearInterval`       | Interval in metres where wind direction/speed changes.         | `50.0`                                        |
+| `Config.windShearSpeed`          | Amount by which base wind speed increases at higher altitudes. | `2.0`                                     |
+| `Config.windShearInterval`       | Interval in metres where wind direction/speed changes.         | `50.0`                                    |
 | `Config.windIsFrozen`            | Whether wind direction is frozen.                              | `false`                                   |
-| `Config.permanentSnow`           | Whether to add snow on the ground permanently.                 | `false`                                   |
-| `Config.dynamicSnow`             | Whether to add snow on the ground dynamically.                 | `false`                                   |
 | `Config.syncDelay`               | How often in ms to sync with clients.                          | `5000`                                    |
-| `Config.ToggleTxAdmin`           | TxAdmin Integration. See [config.lua](config.lua) for sub-options   | `false`                        |
-| `Config.ToggleWeatherTips`           | Toggles the weather alerts during TxAdmin Restarts.   | `false`                                   |
+| `Config.ToggleTxAdmin`           | TxAdmin Integration. See [config.lua](config.lua) for sub-options   | `false`                              |
+| `Config.ToggleWeatherTips`           | Toggles the weather alerts during TxAdmin Restarts.   | `false`                                        |
 | `Config.TxpermanentSnow`           | Toggles permanent snow during TxAdmin Restart weather.   | `0` (0 is off, 1 is on)            |
-| `Config.weatherTransition`           | Sets the weather transition time during TxAdmin Restart weather.   | `120.0` (**use decimal**)                                  |
-| `Config.restartTimeoutWeather`           | Sets the fallback weather if TxAdmin restart is cancelled   | `sunny` See [config.lua](config.lua)            |
-| `Config.FirstTimeToRestart`           | Sets the ammount of time remaining to trigger weather change   | `1800` (1800 seconds is 30 minutes)                                  |
-| `Config.FirstAlert`           | Sets the custom alert message if enabled by ToggleWeatherTips.   | `Weather Alert Goes Here` (any string of text)                                  |
+| `Config.weatherTransition`           | Sets the weather transition time during TxAdmin Restart weather.   | `120.0` (**use decimal**)          |
+| `Config.restartTimeoutWeather`           | Sets the fallback weather if TxAdmin restart is cancelled   | `sunny` See [config.lua](config.lua)  |
+| `Config.FirstTimeToRestart`           | Sets the ammount of time remaining to trigger weather change   | `1800` (1800 seconds is 30 minutes)   |
+| `Config.FirstAlert`           | Sets the custom alert message if enabled by ToggleWeatherTips. | `Weather Alert Goes Here` (any string of text)|
 | `Config.Firstweather`           | Sets the weather type to use leading up to the restart  | `drizzle`    See [config.lua](config.lua)     |
 | `Config.weatherPattern`          | A table describing the the weather pattern.                    | See [config.lua](config.lua)              |
 | `Config.disableSnowOnCayoPerico` | Disables permanent and dynamic snow while on Cayo Perico.      | `false`               |
