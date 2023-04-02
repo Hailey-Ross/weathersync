@@ -47,7 +47,7 @@ Config.weatherIsFrozen = false
 Config.permanentSnow = false
 
 -- Toggle "Winter-Mode" for conversion of normal weather patters to snow variants
--- use with Config.PermanentSnow for "Winter Mode"
+-- use with above Config.PermanentSnow for "Winter Mode"
 Config.toggleWinter = false
 
 -- Whether to add snow on the ground when:
