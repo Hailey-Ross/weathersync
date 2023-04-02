@@ -523,8 +523,8 @@ if toggleTxAdmin then
 	end)
 
 	AddEventHandler('txAdmin:events:skippedNextScheduledRestart', function(eventData)
-		local timeoutRestart = Config.timoutRestart
-		local timeoutWeather = Config.timeoutWeather
+		local timeoutRestart = Config.restartTimeout
+		local timeoutWeather = Config.restartTimeoutWeather
 		if eventData.secondsRemaining >= timoutRestart then
 			setWeather(timeoutWeather, 30.0, 0, Config.TxpermanentSnow)
 			Citizen.Wait(1000)
