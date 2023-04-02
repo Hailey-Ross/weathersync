@@ -85,7 +85,7 @@ start weathersync
 | `Config.permanentSnow`           | Whether to add snow on the ground permanently.                 | `false`                                   |
 | `Config.dynamicSnow`             | Whether to add snow on the ground dynamically.                 | `false`                                   |
 | `Config.syncDelay`               | How often in ms to sync with clients.                          | `5000`                                    |
-| `Config.ToggleTxAdmin`           | TxAdmin Integration. See [config.lua](config.lua)    | `false`                                   |
+| `Config.ToggleTxAdmin`           | TxAdmin Integration. See [config.lua](config.lua) for sub-options   | `false`                                   |
 | `Config.weatherPattern`          | A table describing the the weather pattern.                    | See [config.lua](config.lua)              |
 | `Config.disableSnowOnCayoPerico` | Disables permanent and dynamic snow while on Cayo Perico.      | `false`                                   |
 
