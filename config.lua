@@ -81,7 +81,7 @@ Config.syncDelay = 1000
 
 -- TXAdmin Restart Integration 
 Config.ToggleTxAdmin = false      -- true is on | false is off
-Config.ToggleWeatherTips = false  -- true is on | false is off
+Config.ToggleWeatherTips = false  -- Needs Reimplemented | true is on | false is off
 Config.TxpermanentSnow = 0        -- 1 = on     | 0 = off
 Config.weatherTransition = 120     -- Weather Transition time in Seconds
 
