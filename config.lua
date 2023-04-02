@@ -44,6 +44,10 @@ Config.weatherIsFrozen = false
 -- Whether to permanently add snow on the ground, or only during snowy weather
 Config.permanentSnow = false
 
+-- Toggle "Winter-Mode" for conversion of normal weather patters to snow variants
+-- use with Config.PermanentSnow for "Winter Mode"
+Config.toggleWinter = false
+
 -- Whether to add snow on the ground when:
 -- 	a) in the snowy area of the map
 -- 	b) in the northern part of the map with snowy weather
@@ -72,6 +76,28 @@ Config.windIsFrozen = false
 
 -- How often in milliseconds to sync with clients
 Config.syncDelay = 1000
+
+-- TXAdmin Restart Integration 
+Config.ToggleTxAdmin = false      -- true is on | false is off
+Config.ToggleWeatherTips = false  -- true is on | false is off
+
+Config.FirstTimeToRestart = 1800 -- 30 mins
+Config.FirstAlert = "Weather Alert Goes Here"
+Config.Firstweather = 'drizzle'
+Config.Firsttransition = 60
+Config.FirstpermanentSnow = 0
+
+Config.SecondTimeToRestart = 900 -- 15 mins
+Config.SecondAlert = "Weather Alert Goes Here"
+Config.Secondweather = 'rain'
+Config.Secondtransition = 60
+Config.SecondpermanentSnow = 0
+
+Config.ThirdTimeToRestart = 300 -- 5 mins
+Config.ThirdAlert = "Weather Alert Goes Here"
+Config.Thirdweather = 'thunderstorm'
+Config.Thirdtransition = 60
+Config.ThirdpermanentSnow = 0
 
 -- The following tables describe the weather pattern of the world. For every type of weather that may occur, the types of weather that may follow are given with a number representing the percentage of their likeliness. For example:
 --
