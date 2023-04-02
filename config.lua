@@ -82,19 +82,23 @@ Config.syncDelay = 1000
 -- TXAdmin Restart Integration 
 Config.ToggleTxAdmin = false      -- true is on | false is off
 Config.ToggleWeatherTips = false  -- true is on | false is off
-Config.TxpermanentSnow = 0
+Config.TxpermanentSnow = 0        -- 1 = on     | 0 = off
 
-Config.FirstTimeToRestart = 1800 -- 30 mins
+-- Fallback if Restart is Cancelled to change weather to
+Config.timeoutWeather = 'sunny'   -- Weather to fallback on if restart is cancelled
+Config.timeoutRestart = 300       -- 5 mins after restart is cancelled reset weather and patterns
+
+Config.FirstTimeToRestart = 1800  -- 30 mins
 Config.FirstAlert = "Weather Alert Goes Here"
 Config.Firstweather = 'drizzle'
 Config.Firsttransition = 60
 
-Config.SecondTimeToRestart = 900 -- 15 mins
+Config.SecondTimeToRestart = 900  -- 15 mins
 Config.SecondAlert = "Weather Alert Goes Here"
 Config.Secondweather = 'rain'
 Config.Secondtransition = 60
 
-Config.ThirdTimeToRestart = 300 -- 5 mins
+Config.ThirdTimeToRestart = 300   -- 5 mins
 Config.ThirdAlert = "Weather Alert Goes Here"
 Config.Thirdweather = 'thunderstorm'
 Config.Thirdtransition = 60
