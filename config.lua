@@ -84,15 +84,12 @@ Config.ToggleTxAdmin = false      -- true is on | false is off
 Config.ToggleWeatherTips = false  -- true is on | false is off
 Config.TxpermanentSnow = 0        -- 1 = on     | 0 = off
 Config.weatherTransition = 60     -- Weather Transition time in Seconds
-
 -- Fallback if Restart is Cancelled to change weather to
 Config.restartTimeoutWeather = 'sunny'   -- Weather to fallback on if restart is cancelled
-Config.restartTimeout = 300       -- 5 mins after restart is cancelled reset weather and patterns
 
 Config.FirstTimeToRestart = 1800  -- 30 mins
 Config.FirstAlert = "Weather Alert Goes Here"
 Config.Firstweather = 'drizzle'
-
 
 Config.SecondTimeToRestart = 900  -- 15 mins
 Config.SecondAlert = "Weather Alert Goes Here"
