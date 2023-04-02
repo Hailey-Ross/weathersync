@@ -76,8 +76,8 @@ Config.windShearInterval = 50.0
 -- Whether wind direction is frozen when the resource starts
 Config.windIsFrozen = false
 
--- Toggle Weather/time Syncing for players on resource starts, can be toggled by an export
-Config.syncEnabled = true
+-- Toggle Weather/time Syncing for players on resource starts, can be toggled by exports (see readme file Exports section)
+Config.syncEnabled = true -- Leave alone unless you know what you are doing!
 
 -- How often in milliseconds to sync with clients
 Config.syncDelay = 1000
