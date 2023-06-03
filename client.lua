@@ -3,8 +3,8 @@ local toggleWinter = Config.toggleWinter
 
 local currentWeather = nil
 local currentWindDirection = 0.0
-local snowOnGround = false
-local syncEnabled = true
+local snowOnGround = Config.permanentSnow
+local syncEnabled = Config.syncEnabled
 local debug = Config.debug
 
 local forecastIsDisplayed = false
