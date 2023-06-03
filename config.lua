@@ -36,7 +36,7 @@ Config.timeIsFrozen = false
 
 -- Default weather when the resource starts
 Config.weather = Config.isRDR and "sunny" or "clear" -- Normal Weather
---Config.weather = Config.isRDR and "snowlight" or "clear" -- Snowy Weather
+--Config.weather = Config.isRDR and "snowlight" or "clear" -- Uncomment for Snowy Weather
 
 -- The interval (in-game time) between weather changes
 Config.weatherInterval = DHMSToTime(0, 1, 0, 0)
