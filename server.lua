@@ -63,7 +63,7 @@ local function nextWeather(weather)
 	for weatherType, chance in pairs(choices) do
 		c = c + chance
 		if r <= c then
-			if Config.toggleWinter and Config.isRDR then
+			if Config.toggleWinter then
 				if weatherType == 'rain' then
 					weatherType = 'snow'
 					return weatherType
@@ -495,7 +495,7 @@ if toggleTxAdmin then
 		local TimeToRestart = firstTimetoRestart / 60
 		if eventData.secondsRemaining == firstTimetoRestart then 
 			setWeather(firstWeather, weatherTransition * 1.0, 1, Config.TxpermanentSnow)
-			if toggleWeatherTips then TriggerClientEvent("vorp:TipBottom", -1, Config.FirstAlert, 3000) end
+			if toggleWeatherTips then TriggerClientEvent("vorp:TipBottom", -1, Config.FirstAlert, 25) end
 			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. currentWeather .. " ") end
 			syncWeather(-1)
 			Citizen.Wait(1000)
@@ -507,7 +507,7 @@ if toggleTxAdmin then
 		local TimeToRestart = secondTimetoRestart / 60
 		if eventData.secondsRemaining == secondTimetoRestart then 
 			setWeather(secondWeather, weatherTransition * 1.0, 1, Config.TxpermanentSnow)
-			if toggleWeatherTips then TriggerClientEvent("vorp:TipBottom", -1, Config.SecondAlert, 3000) end
+			if toggleWeatherTips then TriggerClientEvent("vorp:TipBottom", -1, Config.SecondAlert, 25) end
 			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. currentWeather .. " ") end
 			syncWeather(-1)
 			Citizen.Wait(1000)
@@ -519,7 +519,7 @@ if toggleTxAdmin then
 		local TimeToRestart = thirdTimetoRestart / 60
 		if eventData.secondsRemaining == thirdTimetoRestart then 
 			setWeather(thirdWeather, weatherTransition * 1.0, 1, Config.TxpermanentSnow)
-			if toggleWeatherTips then TriggerClientEvent("vorp:TipBottom", -1, Config.ThirdAlert, 3000) end
+			if toggleWeatherTips then TriggerClientEvent("vorp:TipBottom", -1, Config.ThirdAlert, 25) end
 			if debug then print(debugstringOne .. TimeToRestart .. debugstringTwo .. currentWeather .. " ") end
 			syncWeather(-1)
 			Citizen.Wait(1000)
@@ -532,9 +532,8 @@ if toggleTxAdmin then
 		local permanentSnow = Config.permanentSnow
 		if debug then print("TxAdmin Restart was Cancelled, Resetting Forecast/Weather") end
 		setWeather(timeoutWeather, weatherTransition * 1.0, 0, permanentSnow)
-		resetWeather()
+		Citizen.Wait(5000)
 		resetWeatherPattern()
 		syncWeather(-1)
-		Citizen.Wait(1000)
 	end)
 end

@@ -35,7 +35,7 @@ Config.realTimeOffset = 0
 Config.timeIsFrozen = false
 
 -- Default weather when the resource starts
-Config.weather = Config.isRDR and "sunny" or "clear"
+Config.weather = Config.isRDR and "snowlight" or "overcast"
 
 -- The interval (in-game time) between weather changes
 Config.weatherInterval = DHMSToTime(0, 1, 0, 0)
@@ -47,13 +47,13 @@ Config.weatherIsFrozen = false
 Config.permanentSnow = false
 
 -- Toggle "Winter-Mode" for conversion of normal weather patters to snow variants
--- use with above Config.PermanentSnow for "Winter Mode"
+-- use with Config.PermanentSnow for "Winter Mode"
 Config.toggleWinter = false
 
 -- Whether to add snow on the ground when:
 -- 	a) in the snowy area of the map
 -- 	b) in the northern part of the map with snowy weather
-Config.dynamicSnow = false
+Config.dynamicSnow = true
 
 -- Number of weather intervals to queue up
 Config.maxForecast = 23
@@ -76,28 +76,26 @@ Config.windShearInterval = 50.0
 -- Whether wind direction is frozen when the resource starts
 Config.windIsFrozen = false
 
--- Toggle Weather/time Syncing for players on resource starts, can be toggled by exports (see readme file Exports section)
-Config.syncEnabled = true -- Leave alone unless you know what you are doing!
-Config.syncDelay = 1000   -- How often in milliseconds to sync with clients
+-- How often in milliseconds to sync with clients
+Config.syncDelay = 5000
 
 -- TXAdmin Restart Integration 
 Config.ToggleTxAdmin = false      -- true is on | false is off
-Config.ToggleWeatherTips = false  -- true is on | false is off
+Config.ToggleWeatherTips = true  -- true is on | false is off
 Config.TxpermanentSnow = 0        -- 1 = on     | 0 = off
-Config.weatherTransition = 120.0     -- Weather Transition time in seconds
-
+Config.weatherTransition = 120     -- Weather Transition time in Seconds
 -- Fallback if Restart is Cancelled to change weather to
 Config.restartTimeoutWeather = 'sunny'   -- Weather to fallback on if restart is cancelled
 
-Config.FirstTimeToRestart = 1800  -- 30 mins until restart in seconds
+Config.FirstTimeToRestart = 1800  -- 30 mins
 Config.FirstAlert = "Weather Alert Goes Here"
 Config.Firstweather = 'drizzle'
 
-Config.SecondTimeToRestart = 900  -- 15 mins until restart in seconds
+Config.SecondTimeToRestart = 900  -- 15 mins
 Config.SecondAlert = "Weather Alert Goes Here"
 Config.Secondweather = 'rain'
 
-Config.ThirdTimeToRestart = 300   -- 5 mins until restart in seconds
+Config.ThirdTimeToRestart = 300   -- 5 mins
 Config.ThirdAlert = "Weather Alert Goes Here"
 Config.Thirdweather = 'thunderstorm'
 
